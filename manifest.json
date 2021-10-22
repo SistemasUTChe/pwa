@@ -9,17 +9,17 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "img/android/android-launchericon-48-48.png",
+            "src": "img/icons/icon-48x48.png",
             "type": "image/png",
             "sizes": "48x48"
         },
         {
-            "src": "img/android/android-launchericon-72-72.png",
+            "src": "img/icons/icon-72x72.png",
             "type": "image/png",
             "sizes": "72x72"
         },
         {
-            "src": "img/android/android-launchericon-96-96.png",
+            "src": "img/icons/icon-96x96.png",
             "type": "image/png",
             "sizes": "96x96"
         },
@@ -29,7 +29,7 @@
             "sizes": "128x128"
         },
         {
-            "src": "img/android/android-launchericon-144-144.png",
+            "src": "img/icons/icon-144x144.png",
             "type": "image/png",
             "sizes": "144x144"
         },
@@ -39,7 +39,7 @@
             "sizes": "152x152"
         },
         {
-            "src": "img/android/android-launchericon-192-192.png",
+            "src": "img/icons/icon-192x192.png",
             "type": "image/png",
             "sizes": "192x192",
             "purpose": "any maskable"
@@ -50,7 +50,7 @@
             "sizes": "384x384"
         },
         {
-            "src": "img/android/android-launchericon-512-512.png",
+            "src": "img/icons/icon-512x512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
