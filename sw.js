@@ -35,7 +35,6 @@ self.addEventListener('install', e => {
         .then( cache => {
 
             return cache.addAll([
-                '/',
                 '/index.html',
                 '/css/style.css',
                 '/img/main.jpg',
