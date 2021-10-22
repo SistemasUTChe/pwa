@@ -1,7 +1,7 @@
 
-const CACHE_STATIC_NAME  = 'static-v6';
-const CACHE_DYNAMIC_NAME = 'dynamic-v1';
-const CACHE_INMUTABLE_NAME = 'inmutable-v1';
+const CACHE_STATIC_NAME  = 'pwa-static-v1';
+const CACHE_DYNAMIC_NAME = 'pwa-dynamic-v1';
+const CACHE_INMUTABLE_NAME = 'pwa-inmutable-v1';
 
 const CACHE_DYNAMIC_LIMIT = 50;
 
@@ -35,6 +35,7 @@ self.addEventListener('install', e => {
         .then( cache => {
 
             return cache.addAll([
+                '/',
                 '/index.html',
                 '/css/style.css',
                 '/img/main.jpg',
