@@ -5,6 +5,15 @@ const CACHE_INMUTABLE_NAME = 'pwa-inmutable-v1';
 
 const CACHE_DYNAMIC_LIMIT = 50;
 
+var APP_SHELL = [
+    'index.html',
+    'css/style.css',
+    'img/main.jpg',
+    'js/app.js',
+    'img/no-img.jpg',
+    'pages/offline.html' 
+  ];
+
 
 function limpiarCache( cacheName, numeroItems ) {
 
@@ -34,14 +43,7 @@ self.addEventListener('install', e => {
     const cacheProm = caches.open( CACHE_STATIC_NAME )
         .then( cache => {
 
-            return cache.addAll([
-                'index.html',
-                'css/style.css',
-                'img/main.jpg',
-                'js/app.js',
-                'img/no-img.jpg',
-                'pages/offline.html'
-            ]);
+            return cache.addAll(APP_SHELL);
 
         
         });
@@ -62,7 +64,6 @@ self.addEventListener('activate', e => {
 
         keys.forEach( key => {
 
-            // static-v4
             if (  key !== CACHE_STATIC_NAME && key.includes('static') ) {
                 return caches.delete(key);
             }
@@ -97,7 +98,7 @@ self.addEventListener('fetch', e => {
                 caches.open( CACHE_DYNAMIC_NAME )
                     .then( cache => {
                         cache.put( e.request, newResp );
-                        limpiarCache( CACHE_DYNAMIC_NAME, 50 );
+                        limpiarCache( CACHE_DYNAMIC_NAME, CACHE_DYNAMIC_LIMIT );
                     });
 
                 return newResp.clone();
@@ -105,12 +106,12 @@ self.addEventListener('fetch', e => {
             .catch( err => {
 
                 if ( e.request.headers.get('accept').includes('text/html') ) {
-                    return caches.match('/pages/offline.html');
+                    return caches.match('pages/offline.html');
                 }
 
                 if ( /\.(png|jpg)$/i.test( e.request.url ) ) {
 
-                    return caches.match('/img/no-img.jpg');
+                    return caches.match('img/no-img.jpg');
                 }    
 
             
